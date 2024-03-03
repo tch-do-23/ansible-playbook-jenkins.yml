@@ -13,7 +13,7 @@
 
     - name: Install Java OpenJDK (required for Jenkins)
       yum:
-       name: java-11-amazon-corretto.x86_64
+       name: java-11-openjdk.x86_64
        state: present
   
 
