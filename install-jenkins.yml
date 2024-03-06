@@ -11,7 +11,7 @@
         name: '*'
         state: latest
 
-    - name: Install Java OpenJDK (required for Jenkins)
+    - name: Install Java OpenJDK 
       yum:
        name: java-11-openjdk.x86_64
        state: present
@@ -52,6 +52,10 @@
         state: started
         enabled: yes
 
+    - name: Update package cache
+      yum:
+        update_cache: yes
+
     - name: Install Docker Prerequisites
       package:
         name: "{{ item }}"
@@ -73,7 +77,7 @@
     - name: Install Docker CE
       package:
         name: docker-ce
-        state: present
+        state: latest
 
     - name: Start Docker service
       service:
